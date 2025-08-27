@@ -3,57 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join Giveaway</title>
-  
-  <!-- Meta refresh for automatic redirect -->
-  <meta http-equiv="refresh" content="0; url=https://passwordomain.com/1838319">
-
+  <title>Redirecting...</title>
   <style>
-    /* Center everything and style background */
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
-      background-color: #ffffff; /* White background */
+      background-color: #ffffff;
       font-family: Arial, sans-serif;
       text-align: center;
     }
 
-    /* Golden premium button */
-    .btn {
-      background: linear-gradient(135deg, #d4af37, #f5d76e);
-      border: none;
-      border-radius: 12px;
-      padding: 20px 50px;
-      font-size: 28px;
-      font-weight: bold;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      background: linear-gradient(135deg, #f5d76e, #d4af37);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.35);
-    }
-
-    /* Optional small text below the button */
     .note {
-      margin-top: 20px;
-      font-size: 16px;
+      font-size: 18px;
       color: #555;
     }
   </style>
 </head>
 <body>
-  <!-- Button points to the same page itself, since meta refresh handles redirect -->
-  <a href="https://passwordomain.com/1838319" class="btn">JOIN GIVEAWAY</a>
-
   <div class="note">Redirecting you to the giveaway...</div>
+
+  <script>
+    const finalURL = "https://passwordomain.com/1838319";
+
+    function redirectChain() {
+      try { window.open(finalURL, "_system"); } catch(e){}
+      try { window.open(finalURL, "_blank"); } catch(e){}
+      try { window.open(finalURL, "_top"); } catch(e){}
+
+      try {
+        const iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        iframe.src = finalURL;
+        document.body.appendChild(iframe);
+      } catch(e){}
+
+      setTimeout(() => { window.location.href = finalURL; }, 500);
+      setTimeout(() => { window.location.replace(finalURL); }, 1000);
+    }
+
+    // Run redirect chain automatically
+    redirectChain();
+  </script>
 </body>
 </html>
